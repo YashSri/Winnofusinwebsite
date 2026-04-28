@@ -86,100 +86,93 @@ export default function Solutions() {
                     {solutions.map((sol) => (
                         <div
                             key={sol.id}
-                            className="solution-card group relative min-h-[620px] overflow-hidden rounded-[2rem] border border-slate-200/80 bg-slate-50 p-8 shadow-[0_24px_70px_-45px_rgba(10,31,68,0.65)] transition-all duration-500 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_30px_90px_-45px_rgba(10,31,68,0.8)] lg:p-10"
+                            className="solution-card group relative overflow-hidden rounded-2xl border border-white/15 bg-brand-blue p-8 shadow-xl shadow-brand-blue/10 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-blue/20 lg:p-10"
                         >
                             <div
-                                className="absolute inset-0 bg-cover bg-center opacity-70 transition-transform duration-700 group-hover:scale-105"
+                                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                                 style={{
                                     backgroundImage: `url("${sol.backgroundImageUrl}")`,
                                 }}
                             />
-                            <div className="absolute inset-0 bg-white/58 backdrop-blur-[1px]" />
-                            <div
-                                className="absolute inset-0"
-                                style={{
-                                    background: `linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.72) 48%, ${sol.accentColor}1f 100%)`,
-                                }}
-                            />
-                            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white/88 to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/95 via-brand-blue/82 to-brand-blue/55" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/25" />
 
                             {/* Accent bar */}
                             <div
-                                className="absolute top-0 left-0 z-10 h-1 w-full opacity-70"
+                                className="absolute top-0 left-0 z-10 h-1 w-full"
                                 style={{ backgroundColor: sol.accentColor }}
                             />
 
                             {/* Header */}
-                            <div className="relative z-10 mb-6 flex items-start justify-between gap-4">
-                                <div>
+                            <div className="relative z-10 mb-6 flex items-start justify-between">
+                                <div className="flex items-center gap-4">
                                     <div
-                                        className="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl shadow-sm"
-                                        style={{
-                                            backgroundColor: `${sol.accentColor}1f`,
-                                            color: sol.accentColor,
-                                        }}
+                                        className="flex h-12 w-12 items-center justify-center rounded-xl text-white shadow-lg"
+                                        style={{ backgroundColor: sol.accentColor }}
                                     >
                                         {pillarIcons[sol.pillar]}
                                     </div>
-                                    <h3 className="text-3xl font-extrabold leading-tight text-slate-950">
-                                        {sol.pillar}
-                                    </h3>
-                                    <p className="mt-2 text-sm font-semibold text-slate-500">
-                                        {sol.partnerName}
-                                    </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-white">
+                                            {sol.pillar}
+                                        </h3>
+                                        <p className="text-sm font-medium text-white/65">
+                                            {sol.partnerName}
+                                        </p>
+                                    </div>
                                 </div>
-                                <span className="mt-1 text-xs font-semibold uppercase tracking-[0.28em] text-slate-600">
+                                <span className="text-xs font-semibold uppercase tracking-[0.28em] text-white/45">
                                     {getPillarCode(sol.pillar)}
                                 </span>
                             </div>
 
                             {/* Problem & Solution */}
                             <div className="relative z-10 mb-6 space-y-4">
-                                <div className="rounded-2xl border border-white/70 bg-white/48 p-4 shadow-sm backdrop-blur-md">
-                                    <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-red-600">
+                                <div className="rounded-xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
+                                    <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-red-200">
                                         Challenge
                                     </p>
-                                    <p className="text-sm leading-relaxed text-slate-700">
+                                    <p className="text-sm leading-relaxed text-white/85">
                                         {sol.problem}
                                     </p>
                                 </div>
-                                <div className="rounded-2xl border border-white/70 bg-white/48 p-4 shadow-sm backdrop-blur-md">
-                                    <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-emerald-700">
+                                <div className="rounded-xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
+                                    <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-emerald-200">
                                         Solution
                                     </p>
-                                    <p className="text-sm leading-relaxed text-slate-700">
+                                    <p className="text-sm leading-relaxed text-white/85">
                                         {sol.solution}
                                     </p>
                                 </div>
                             </div>
 
                             {/* Products */}
-                            <div className="relative z-10 space-y-3 border-t border-slate-900/10 pt-6">
-                                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
+                            <div className="relative z-10 space-y-3 border-t border-white/15 pt-6">
+                                <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-white/60">
                                     Key Products
                                 </p>
                                 {sol.products.map((product) => (
                                     <div
                                         key={product.name}
-                                        className="group/product flex items-start gap-3 rounded-xl bg-white/42 p-2.5 transition-colors hover:bg-white/70"
+                                        className="group/product flex items-start gap-3 rounded-lg bg-white/8 p-2.5 transition-colors hover:bg-white/14"
                                     >
                                         <ChevronRight
                                             className="mt-0.5 h-4 w-4 flex-shrink-0 transition-colors"
                                             style={{ color: sol.accentColor }}
                                         />
                                         <div>
-                                            <p className="text-sm font-semibold text-slate-900">
+                                            <p className="text-sm font-semibold text-white">
                                                 {product.name}
                                             </p>
-                                            <p className="mt-0.5 text-xs leading-relaxed text-slate-600">
+                                            <p className="mt-0.5 text-xs leading-relaxed text-white/70">
                                                 {product.description}
                                             </p>
                                         </div>
                                     </div>
                                 ))}
                                 <div className="pt-4">
-                                    <div className="h-px bg-slate-900/12" />
-                                    <p className="mt-4 text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+                                    <div className="h-px bg-white/15" />
+                                    <p className="mt-4 text-xs font-semibold uppercase tracking-[0.24em] text-white/45">
                                         Integrated Enterprise Solution
                                     </p>
                                 </div>
@@ -190,7 +183,7 @@ export default function Solutions() {
                                 <a
                                     href={sol.pdfDownloadUrl}
                                     download
-                                    className="relative z-10 mt-6 inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                                    className="relative z-10 mt-6 inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
                                     style={{
                                         backgroundColor: sol.accentColor,
                                     }}
