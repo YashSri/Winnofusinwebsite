@@ -11,6 +11,7 @@ export interface SolutionCard {
     solution: string;
     products: SolutionProduct[];
     accentColor: string;
+    backgroundImageUrl: string;
     pdfDownloadUrl?: string;
 }
 
@@ -41,6 +42,7 @@ export const solutions: SolutionCard[] = [
             },
         ],
         accentColor: "#3B82F6",
+        backgroundImageUrl: "/Mobility.png",
         pdfDownloadUrl: "/downloads/enterprise-mobility-insights.pdf",
     },
     {
@@ -70,6 +72,7 @@ export const solutions: SolutionCard[] = [
         ],
         pdfDownloadUrl: "/downloads/cybersecurity-insights.pdf",
         accentColor: "#EF4444",
+        backgroundImageUrl: "/Cybersecurity.png",
     },
     {
         id: "sol-productivity",
@@ -98,6 +101,7 @@ export const solutions: SolutionCard[] = [
         ],
         pdfDownloadUrl: "/downloads/employee-productivity-insights.pdf",
         accentColor: "#10B981",
+        backgroundImageUrl: "/Employee%20Productivity.png",
     },
     {
         id: "sol-it-ops",
@@ -120,6 +124,7 @@ export const solutions: SolutionCard[] = [
             },
         ],
         accentColor: "#8B5CF6",
+        backgroundImageUrl: "/Unified%20IT%20Operations.png",
         pdfDownloadUrl: "/downloads/unified-it-operations-insights.pdf",
     },
 ];
