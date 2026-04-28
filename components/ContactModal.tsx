@@ -50,6 +50,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
     const [values, setValues] = useState<FormValues>(initialValues);
     const [errors, setErrors] = useState<FormErrors>({});
     const [submitted, setSubmitted] = useState(false);
+    const [sending, setSending] = useState(false);
 
     useEffect(() => {
         if (!open) {
@@ -97,15 +98,35 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
         return Object.keys(nextErrors).length === 0;
     };
 
-    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         if (!validate()) {
             return;
         }
 
-        setSubmitted(true);
-        setValues(initialValues);
+        setSending(true);
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(values),
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                setSubmitted(true);
+                setValues(initialValues);
+            } else {
+                alert("Error sending message. Please try again.");
+            }
+        } catch {
+            alert("Error sending message. Please try again.");
+        } finally {
+            setSending(false);
+        }
     };
 
     const handleChange = (
@@ -326,9 +347,10 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
 
                             <button
                                 type="submit"
-                                className="w-full rounded-full bg-gradient-to-r from-[#FF8A00] to-[#FF4D00] py-3 text-sm font-semibold text-white transition hover:scale-105 hover:shadow-[0_18px_40px_-18px_rgba(255,105,0,0.95)]"
+                                disabled={sending}
+                                className="w-full rounded-full bg-gradient-to-r from-[#FF8A00] to-[#FF4D00] py-3 text-sm font-semibold text-white transition hover:scale-105 hover:shadow-[0_18px_40px_-18px_rgba(255,105,0,0.95)] disabled:cursor-not-allowed disabled:opacity-60"
                             >
-                                Send Inquiry →
+                                {sending ? "Sending…" : "Send Inquiry →"}
                             </button>
                         </form>
                     </motion.div>
