@@ -1,12 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { solutions } from "@/data/solutions";
 import { Shield, Smartphone, BarChart3, Network, ChevronRight, Download } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const pillarIcons: Record<string, React.ReactNode> = {
     "Enterprise Mobility": <Smartphone className="h-6 w-6" />,
@@ -25,43 +20,9 @@ function getPillarCode(pillar: string) {
 }
 
 export default function Solutions() {
-    const sectionRef = useRef<HTMLElement>(null);
-
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.from(".solution-header", {
-                opacity: 0,
-                y: 40,
-                duration: 0.8,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top 80%",
-                    once: true,
-                },
-            });
-
-            gsap.from(".solution-card", {
-                opacity: 0,
-                y: 50,
-                duration: 0.7,
-                stagger: 0.15,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: ".solution-grid",
-                    start: "top 82%",
-                    once: true,
-                },
-            });
-        }, sectionRef);
-
-        return () => ctx.revert();
-    }, []);
-
     return (
         <section
             id="solutions"
-            ref={sectionRef}
             className="bg-white py-24 lg:py-32"
         >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -83,10 +44,11 @@ export default function Solutions() {
 
                 {/* Solution Cards Grid */}
                 <div className="solution-grid grid grid-cols-1 gap-8 md:grid-cols-2">
-                    {solutions.map((sol) => (
+                    {solutions.map((sol, index) => (
                         <div
                             key={sol.id}
-                            className="solution-card group relative overflow-hidden rounded-2xl border border-white/15 bg-brand-blue p-8 shadow-xl shadow-brand-blue/10 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-blue/20 lg:p-10"
+                            className="solution-card group relative animate-[industry-card-in_0.55s_ease-out_both] overflow-hidden rounded-2xl border border-white/15 bg-brand-blue p-8 shadow-xl shadow-brand-blue/10 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-blue/20 lg:p-10"
+                            style={{ animationDelay: `${index * 100}ms` }}
                         >
                             <div
                                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"

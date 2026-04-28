@@ -1,12 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { insights } from "@/data/insights";
 import { Clock, ArrowRight, Download } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 function getTypeBadgeStyle(type: string) {
     switch (type) {
@@ -31,43 +26,9 @@ function formatDate(dateStr: string) {
 }
 
 export default function Insights() {
-    const sectionRef = useRef<HTMLElement>(null);
-
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.from(".insights-header", {
-                opacity: 0,
-                y: 40,
-                duration: 0.8,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top 80%",
-                    once: true,
-                },
-            });
-
-            gsap.from(".insight-card", {
-                opacity: 0,
-                y: 50,
-                duration: 0.7,
-                stagger: 0.12,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: ".insights-grid",
-                    start: "top 82%",
-                    once: true,
-                },
-            });
-        }, sectionRef);
-
-        return () => ctx.revert();
-    }, []);
-
     return (
         <section
             id="insights"
-            ref={sectionRef}
             className="bg-white py-24 lg:py-32"
         >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -88,10 +49,11 @@ export default function Insights() {
 
                 {/* Cards Grid */}
                 <div className="insights-grid grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    {insights.map((item) => (
+                    {insights.map((item, index) => (
                         <article
                             key={item.id}
-                            className="insight-card card-hover group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white transition-all duration-300 hover:shadow-xl"
+                            className="insight-card card-hover group flex animate-[industry-card-in_0.55s_ease-out_both] flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white transition-all duration-300 hover:shadow-xl"
+                            style={{ animationDelay: `${index * 90}ms` }}
                         >
                             {/* Placeholder image */}
                             <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-brand-blue/10 via-slate-100 to-brand-orange/10">
