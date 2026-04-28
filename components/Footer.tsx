@@ -1,3 +1,5 @@
+"use client";
+
 import {
     MapPin,
     Mail,
@@ -22,7 +24,11 @@ const quickLinks = [
     { label: "Contact", href: "#contact" },
 ];
 
-export default function Footer() {
+type FooterProps = {
+    onOpenContact: () => void;
+};
+
+export default function Footer({ onOpenContact }: FooterProps) {
     return (
         <footer id="contact" className="bg-brand-blue text-white">
             {/* Contact CTA Banner */}
@@ -36,13 +42,14 @@ export default function Footer() {
                             Connect with our experts for a tailored consultation.
                         </p>
                     </div>
-                    <a
-                        href="mailto:enquiry@winnovation.org"
+                    <button
+                        type="button"
+                        onClick={onOpenContact}
                         className="inline-flex items-center gap-2 rounded-full bg-brand-orange px-8 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-brand-orange-dark hover:shadow-xl hover:shadow-brand-orange/25"
                     >
                         Schedule a Consultation
                         <ArrowUpRight className="h-4 w-4" />
-                    </a>
+                    </button>
                 </div>
             </div>
 

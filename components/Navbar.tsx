@@ -10,7 +10,11 @@ const navLinks = [
     { label: "Contact", href: "#contact" },
 ];
 
-export default function Navbar() {
+type NavbarProps = {
+    onOpenContact: () => void;
+};
+
+export default function Navbar({ onOpenContact }: NavbarProps) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileOpen, setIsMobileOpen] = useState(false);
 
@@ -50,18 +54,25 @@ export default function Navbar() {
                         <a
                             key={link.href}
                             href={link.href}
+                            onClick={(event) => {
+                                if (link.label === "Contact") {
+                                    event.preventDefault();
+                                    onOpenContact();
+                                }
+                            }}
                             className="relative text-sm font-medium text-slate-600 transition-colors duration-200 hover:text-brand-orange after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-brand-orange after:transition-all after:duration-300 hover:after:w-full"
                         >
                             {link.label}
                         </a>
                     ))}
-                    <a
-                        href="#contact"
+                    <button
+                        type="button"
+                        onClick={onOpenContact}
                         className="inline-flex items-center gap-2 rounded-full bg-brand-orange px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-brand-orange-dark hover:shadow-lg hover:shadow-brand-orange/25"
                     >
                         Consult an Expert
                         <ChevronRight className="h-4 w-4" />
-                    </a>
+                    </button>
                 </nav>
 
                 {/* Mobile Menu Toggle */}
@@ -87,20 +98,29 @@ export default function Navbar() {
                             <a
                                 key={link.href}
                                 href={link.href}
-                                onClick={() => setIsMobileOpen(false)}
+                                onClick={(event) => {
+                                    setIsMobileOpen(false);
+                                    if (link.label === "Contact") {
+                                        event.preventDefault();
+                                        onOpenContact();
+                                    }
+                                }}
                                 className="rounded-lg px-4 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-orange-50 hover:text-brand-orange"
                             >
                                 {link.label}
                             </a>
                         ))}
-                        <a
-                            href="#contact"
-                            onClick={() => setIsMobileOpen(false)}
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setIsMobileOpen(false);
+                                onOpenContact();
+                            }}
                             className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-brand-orange px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-brand-orange-dark"
                         >
                             Consult an Expert
                             <ChevronRight className="h-4 w-4" />
-                        </a>
+                        </button>
                     </nav>
                 </div>
             )}

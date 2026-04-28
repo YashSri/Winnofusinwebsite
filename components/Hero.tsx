@@ -5,7 +5,11 @@ import { ArrowRight, FileText, Clock } from "lucide-react";
 import { insights } from "@/data/insights";
 import gsap from "gsap";
 
-export default function Hero() {
+type HeroProps = {
+    onOpenContact: () => void;
+};
+
+export default function Hero({ onOpenContact }: HeroProps) {
     const feedRef = useRef<HTMLDivElement>(null);
     const heroRef = useRef<HTMLElement>(null);
 
@@ -97,12 +101,13 @@ export default function Hero() {
                             Explore Our Solutions
                             <ArrowRight className="h-4 w-4" />
                         </a>
-                        <a
-                            href="#contact"
+                        <button
+                            type="button"
+                            onClick={onOpenContact}
                             className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:border-white/40 hover:bg-white/5"
                         >
                             Contact Us
-                        </a>
+                        </button>
                     </div>
                 </div>
 
