@@ -33,19 +33,14 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
                     : "bg-transparent"
                 }`}
         >
-            <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+            <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
                 {/* Logo */}
-                <a href="#" className="flex items-center gap-2">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-blue">
-                        <span className="text-sm font-bold text-white">W</span>
-                    </div>
-                    <span
-                        className={`text-lg font-bold tracking-tight transition-colors duration-300 ${isScrolled ? "text-brand-blue" : "text-brand-blue"
-                            }`}
-                    >
-                        WinnoVation
-                        <span className="text-brand-orange"> Technology Solutions</span>
-                    </span>
+                <a href="#" className="flex items-center overflow-visible">
+                    <img
+                        src="/Untitled design (1).png"
+                        alt="WinnoVation Technology Solutions"
+                        className="h-[130px] w-auto object-contain"
+                    />
                 </a>
 
                 {/* Desktop Navigation */}

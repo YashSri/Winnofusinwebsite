@@ -13,7 +13,7 @@ export const industries: Industry[] = [
         name: "Quick Commerce",
         description: "Faster last-mile delivery with secure mobile fulfillment operations.",
         iconName: "Truck",
-        imageUrl: "https://source.unsplash.com/1200x800/?india,delivery,warehouse",
+        imageUrl: "/Quick%20commerce.png",
         accentColor: "#F26522",
     },
     {
@@ -21,7 +21,7 @@ export const industries: Industry[] = [
         name: "Airlines",
         description: "Connected passenger journeys with reliable airport and fleet operations.",
         iconName: "Cloud",
-        imageUrl: "https://source.unsplash.com/1200x800/?india,airline,airport",
+        imageUrl: "/Airlines.png",
         accentColor: "#2563EB",
     },
     {
@@ -29,7 +29,7 @@ export const industries: Industry[] = [
         name: "Police Modernization",
         description: "Digital policing with secured field devices and command visibility.",
         iconName: "Landmark",
-        imageUrl: "https://source.unsplash.com/1200x800/?india,police,city",
+        imageUrl: "/Police.png",
         accentColor: "#0F766E",
     },
     {
@@ -37,7 +37,7 @@ export const industries: Industry[] = [
         name: "Excise",
         description: "Compliance-led monitoring for transparent revenue and enforcement workflows.",
         iconName: "Factory",
-        imageUrl: "https://source.unsplash.com/1200x800/?india,government,compliance",
+        imageUrl: "/Excise.png",
         accentColor: "#B45309",
     },
     {
@@ -45,7 +45,7 @@ export const industries: Industry[] = [
         name: "Women and Child Care",
         description: "Secure welfare systems enabling better care delivery and outcomes.",
         iconName: "HeartPulse",
-        imageUrl: "https://source.unsplash.com/1200x800/?india,women,children,community",
+        imageUrl: "/Women.png",
         accentColor: "#DB2777",
     },
     {
@@ -53,7 +53,7 @@ export const industries: Industry[] = [
         name: "Industry 6.0",
         description: "Human-centric automation powered by AI, IoT, and resilient systems.",
         iconName: "Factory",
-        imageUrl: "https://source.unsplash.com/1200x800/?india,smart-factory,automation",
+        imageUrl: "/INDUSTRY%206.0.png",
         accentColor: "#7C3AED",
     },
     {
@@ -61,7 +61,7 @@ export const industries: Industry[] = [
         name: "Banking",
         description: "Protected transactions and fraud-aware operations for digital finance.",
         iconName: "Landmark",
-        imageUrl: "https://source.unsplash.com/1200x800/?india,banking,finance",
+        imageUrl: "/Banking.png",
         accentColor: "#047857",
     },
     {
@@ -69,7 +69,23 @@ export const industries: Industry[] = [
         name: "Logistic and Transportation",
         description: "Unified visibility across fleets, hubs, and nationwide movement.",
         iconName: "Truck",
-        imageUrl: "https://source.unsplash.com/1200x800/?india,logistics,transportation",
+        imageUrl: "/Logistics.png",
         accentColor: "#DC2626",
+    },
+    {
+        id: "ind-healthcare",
+        name: "Healthcare",
+        description: "Real-time patient monitoring and secure clinical workflows at the point of care.",
+        iconName: "Stethoscope",
+        imageUrl: "/Healthcare.png",
+        accentColor: "#0891B2",
+    },
+    {
+        id: "ind-railways",
+        name: "Indian Railways",
+        description: "Connected operations and field mobility for reliable rail network management.",
+        iconName: "Train",
+        imageUrl: "/Railways.png",
+        accentColor: "#1D4ED8",
     },
 ];

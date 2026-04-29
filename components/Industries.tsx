@@ -7,6 +7,8 @@ import {
     Truck,
     HeartPulse,
     Cloud,
+    Train,
+    Stethoscope,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -15,6 +17,8 @@ const iconMap: Record<string, React.ReactNode> = {
     Truck: <Truck className="h-7 w-7" />,
     HeartPulse: <HeartPulse className="h-7 w-7" />,
     Cloud: <Cloud className="h-7 w-7" />,
+    Train: <Train className="h-7 w-7" />,
+    Stethoscope: <Stethoscope className="h-7 w-7" />,
 };
 
 export default function Industries() {
@@ -47,22 +51,17 @@ export default function Industries() {
                 </div>
 
                 {/* Grid */}
-                <div className="ind-grid grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="ind-grid grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
                     {industries.map((ind, index) => (
                         <div
                             key={ind.id}
-                            className="ind-card group relative h-56 animate-[industry-card-in_0.55s_ease-out_both] overflow-hidden rounded-2xl border border-white/70 bg-white p-5 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl hover:shadow-brand-blue/10"
+                            className="ind-card group relative h-72 animate-[industry-card-in_0.55s_ease-out_both] overflow-hidden rounded-2xl border border-white/70 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl hover:shadow-brand-blue/10"
                             style={{
                                 animationDelay: `${index * 80}ms`,
                                 borderColor: `${ind.accentColor}26`,
                             }}
                         >
-                            <div
-                                className="pointer-events-none absolute -inset-4 rounded-[2rem] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
-                                style={{
-                                    background: `linear-gradient(135deg, ${ind.accentColor}33, transparent 45%, rgba(10, 31, 68, 0.18))`,
-                                }}
-                            />
+                            <div className="pointer-events-none absolute -inset-4 rounded-[2rem] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100 bg-[rgba(10,31,68,0.25)]" />
 
                             {/* Background Image with Blur Overlay */}
                             {ind.imageUrl && (
@@ -77,7 +76,7 @@ export default function Industries() {
                                     <div
                                         className="absolute inset-0"
                                         style={{
-                                            background: `linear-gradient(180deg, ${ind.accentColor}99 0%, rgba(10, 31, 68, 0.62) 52%, rgba(10, 31, 68, 0.94) 100%)`,
+                                            background: "linear-gradient(180deg, rgba(10, 31, 68, 0.45) 0%, rgba(10, 31, 68, 0.65) 52%, rgba(10, 31, 68, 0.94) 100%)",
                                         }}
                                     />
                                 </div>

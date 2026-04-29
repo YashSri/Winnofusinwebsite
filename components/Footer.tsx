@@ -58,13 +58,12 @@ export default function Footer({ onOpenContact }: FooterProps) {
                 <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
                     {/* Company Info */}
                     <div>
-                        <div className="mb-6 flex items-center gap-2">
-                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-orange">
-                                <span className="text-xs font-bold text-white">W</span>
-                            </div>
-                            <span className="text-base font-bold tracking-tight">
-                                WinnoVation
-                            </span>
+                        <div className="mb-6">
+                            <img
+                                src="/Untitled design (1).png"
+                                alt="WinnoVation Technology Solutions"
+                                className="h-16 w-auto object-contain"
+                            />
                         </div>
                         <p className="mb-6 text-sm leading-relaxed text-slate-400">
                             Empowering enterprise security and next-generation technology
